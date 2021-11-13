@@ -1,6 +1,6 @@
 [package]
 name = "loki-logger"
-version = "0.1.1"
+version = "0.1.2"
 authors = ["Thomas Nicollet <thomas.nicollet@nebulis.io>"]
 license = "AGPL-3.0-or-later"
 readme = "README.md"
