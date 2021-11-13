@@ -4,5 +4,7 @@ async fn main() {
 
     log::info!("Logged into Loki !");
 
+    // This is here so that the log has time to be sent asynchonously
+    #[allow(clippy::empty_loop)]
     loop {}
 }
