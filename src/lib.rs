@@ -1,5 +1,5 @@
 #![deny(missing_docs)]
-#![deny(missing_doc_code_examples)]
+#![deny(rustdoc::missing_doc_code_examples)]
 //! A [loki](https://grafana.com/oss/loki/) logger for the [`log`](https://crates.io/crates/log) facade.
 //! One event is written and send to loki per log call. Each event contain the time in nano second
 //! it was scheduled to be sent, in most cases, when the logging occured.
