@@ -1,0 +1,50 @@
+name: build
+
+on: [push]
+
+jobs:
+
+  build-linux:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        version:
+          - stable
+          - beta
+          - nightly
+      fail-fast: false
+
+    steps:
+
+      - uses: actions/checkout@v2
+
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: ${{ matrix.version }}
+          default: true
+          override: true
+          components: rustfmt
+
+      - name: Install clippy
+        run: rustup component add clippy --toolchain=${{ matrix.version }} || cargo install --git https://github.com/rust-lang/rust-clippy/ --force clippy
+
+      - name: check formatting
+        run: cargo fmt -- --check
+
+      - name: clean
+        run: cargo clean
+
+      - name: build
+        run: cargo build --all --verbose
+        env:
+          RUST_BACKTRACE: 1
+
+      - name: test
+        run: cargo test -- --test-threads 1
+        env:
+          RUST_BACKTRACE: 1
+      
+      - name: clippy
+        run: cargo clippy --all-targets --all-features -- -D warnings
