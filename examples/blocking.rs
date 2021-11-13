@@ -1,11 +1,6 @@
-
 #[cfg(feature = "blocking")]
 fn main() {
-    loki_logger::init(
-        "http://loki:3100/loki/api/v1/push",
-        log::LevelFilter::Info,
-    )
-    .unwrap();
+    loki_logger::init("http://loki:3100/loki/api/v1/push", log::LevelFilter::Info).unwrap();
 
     log::info!("Logged into Loki !");
 }
