@@ -71,7 +71,7 @@
 //!
 //! This feature will allow you to use the [`log`](https://crates.io/crates/log) facade as such:
 //!
-//! ```rust
+//! ```ignore
 //! # extern crate log;
 //! # extern crate loki_logger;
 //! # use std::iter::FromIterator;
