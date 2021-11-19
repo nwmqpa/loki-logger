@@ -65,7 +65,8 @@
 //! ```toml
 //! [dependencies.log]
 //! # It is recommended that you pin this version to a specific commit to avoid issues.
-//! git = "https://github.com/rust-lang/log.git#kv_macro"
+//! git = "https://github.com/rust-lang/log.git"
+//! branch = "kv_macro"
 //! features = ["kv_unstable"]
 //! ```
 //! The ability to use the key:value system with the log crate's macros should come up with the 0.4.15 release or afterwards.
