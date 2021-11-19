@@ -267,7 +267,7 @@ impl log::Log for LokiLogger {
         }
     }
 
-    fn flush(&self) { }
+    fn flush(&self) {}
 }
 
 impl LokiLogger {
