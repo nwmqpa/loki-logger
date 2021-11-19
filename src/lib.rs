@@ -116,6 +116,9 @@ use log::{
     LevelFilter, Metadata, Record, SetLoggerError,
 };
 
+/// Re-export of the log crate for use with a different version by the `loki-logger` crate's user.
+pub use log;
+
 #[derive(Serialize)]
 struct LokiStream {
     stream: HashMap<String, String>,
