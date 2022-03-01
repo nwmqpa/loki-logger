@@ -11,9 +11,9 @@ async fn async_logging_from_sync_thread() {
 
     loki_logger::init(server.url("/loki/api/v1/push"), log::LevelFilter::Info).unwrap();
 
-    std::thread::spawn(|| {
+    tokio::task::spawn_blocking(move || {
         log::info!("Logged into Loki !");
-    });
+    }).await.unwrap();
 
     tokio::time::sleep(std::time::Duration::from_millis(100)).await;
 
